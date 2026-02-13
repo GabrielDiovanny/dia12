@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(to right , rgb(157, 157, 255) , rgb(253, 141, 141));
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.textoP{
+      margin: 70px  250px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      color: white;
+
+}
+
+.escolha {
+  display: flex;  
+  justify-content: space-around;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+}
+
+.fotos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fotos img {
+  width: 15cm;   /* CONTROLA O TAMANHO */
+  height: auto;   /* não distorce */
+  margin-top: 40px;
+
+}
+
+.fotos a:hover {
+  transform: scale(1.12);
+  border-radius: 100px;
+}

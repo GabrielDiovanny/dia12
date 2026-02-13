@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta elegante (romântica sem ficar infantil) */
+  --bg-a: #0b1020;        /* quase preto azulado */
+  --bg-b: #121a33;        /* azul petróleo */
+  --accent: #ff2d6f;      /* pink sofisticado */
+  --accent-2: #7c3aed;    /* roxo premium */
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.70);
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --stroke: rgba(255, 255, 255, 0.10);
+
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Fundo com profundidade + ponto de luz */
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(124, 58, 237, 0.32), transparent 60%),
+    radial-gradient(800px 520px at 80% 20%, rgba(255, 45, 111, 0.22), transparent 60%),
+    linear-gradient(135deg, var(--bg-a), var(--bg-b));
+}
+
+.wrap {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.wrap h1 {
+color: white;
+}
+
+.topo {
+  padding: 42px 0 20px;
+}
+
+.textoP {
+  text-align: center;
+  line-height: 1.5;
+  font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+  color: var(--muted);
+}
+
+.textoP p {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.textoP .destaque {
+  margin-top: 12px;
+  font-size: clamp(1.15rem, 1.4vw, 1.45rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* Títulos grandes e alinhados */
+.escolha {
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: center;
+  text-align: center;
+}
+
+.escolha h1 {
+  font-size: clamp(2.4rem, 2.2vw, 4.1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 0 14px 30px rgba(0, 0, 0, 0.60);
+}
+
+/* Cards */
+.fotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 80px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  border-radius: 26px;
+  overflow: hidden;
+
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+
+  transform: translateY(0);
+  transition: transform 0.25s ease;
+}
+
+.card img {
+  width: 100%;
+  height: clamp(280px, 46vh, 560px);
+  object-fit: cover;
+  display: block;
+
+  filter: saturate(1.08) contrast(1.05);
+  transform: scale(1);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.10),
+    rgba(0, 0, 0, 0.00)
+  );
+  pointer-events: none;
+}
+
+/* Botão "Escolher" com cara boa */
+.tag {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+
+  padding: 12px 18px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+
+  box-shadow: 0 14px 35px rgba(255, 45, 111, 0.28);
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.16) contrast(1.10);
+}
+
+.card:active {
+  transform: translateY(-3px);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .escolha,
+  .fotos {
+    grid-template-columns: 1fr;
+  }
+
+  .escolha {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .escolha h1 {
+    letter-spacing: 0.08em;
+  }
+}
